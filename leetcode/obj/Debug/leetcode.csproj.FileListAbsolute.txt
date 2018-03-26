@@ -1,0 +1,8 @@
+X:\pro\leetcode\leetcode\bin\Debug\leetcode.exe.config
+X:\pro\leetcode\leetcode\obj\Debug\leetcode.csprojResolveAssemblyReference.cache
+X:\pro\leetcode\leetcode\bin\Debug\leetcode.exe
+X:\pro\leetcode\leetcode\bin\Debug\leetcode.pdb
+X:\pro\leetcode\leetcode\obj\Debug\leetcode.exe
+X:\pro\leetcode\leetcode\obj\Debug\leetcode.pdb
+X:\pro\leetcode\leetcode\bin\Debug\LEET.dll
+X:\pro\leetcode\leetcode\bin\Debug\LEET.pdb
