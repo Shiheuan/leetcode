@@ -3,3 +3,8 @@ X:\pro\leetcode\LEET\bin\Debug\LEET.pdb
 X:\pro\leetcode\LEET\obj\Debug\LEET.csprojResolveAssemblyReference.cache
 X:\pro\leetcode\LEET\obj\Debug\LEET.dll
 X:\pro\leetcode\LEET\obj\Debug\LEET.pdb
+X:\gitdir\leetcode\LEET\bin\Debug\LEET.dll
+X:\gitdir\leetcode\LEET\bin\Debug\LEET.pdb
+X:\gitdir\leetcode\LEET\obj\Debug\LEET.csprojResolveAssemblyReference.cache
+X:\gitdir\leetcode\LEET\obj\Debug\LEET.dll
+X:\gitdir\leetcode\LEET\obj\Debug\LEET.pdb

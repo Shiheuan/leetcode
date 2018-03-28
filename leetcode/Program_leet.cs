@@ -11,16 +11,23 @@ namespace leetcode
     {
         static void Main()
         {
+            // test 1
             //int a = easy.Reverse2(-1012);
             //Console.WriteLine($"{-10%3}");
             //Console.WriteLine($"{a}");
-            int[] a = { -111, 111, 1232332321 };
-            for (int i = 0; i < a.Length; i ++)
-            {
-                Console.WriteLine($"{a[i]}");
-                Console.WriteLine($"{easy.IsPalindrome(a[i])}");
-            }
-                
+
+            // test 2
+            //int[] a = { -111, 111, 1232332321 };
+            //for (int i = 0; i < a.Length; i ++)
+            //{
+            //    Console.WriteLine($"{a[i]}");
+            //    Console.WriteLine($"{easy.IsPalindrome(a[i])}");
+            //}
+
+            // test 3
+            string s = "MCMXCVI";
+            int a = easy.RomanToInt4(s);
+            Console.WriteLine($"{a}");
 
             Console.ReadLine();
         }
