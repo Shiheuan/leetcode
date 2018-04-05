@@ -218,5 +218,42 @@ namespace LEET
             return integer;
         }
 
+        /* Write a function to find the longest common prefix string amongst
+         * an array of strings. 
+         * 
+         * 136ms
+         */
+        public static string LongestCommonPrefix(string[] strs)
+        {
+            //if (strs == null) return null;
+            if (strs == null || strs.Length == 0) return "";
+            String prefix = strs[0];
+            for (int i = 1; i < strs.Length; i++)
+            {
+
+                //while (!strs[i].Contains(prefix))
+                //{
+                //    prefix = prefix.Remove(prefix.Length - 1, 1);
+                //    if (prefix == "") return "";
+                //}
+                //for (int j = 0; j < prefix.Length; j++)
+                //{
+                //    if (prefix[j] == strs[i][j]) continue;
+                //    prefix = prefix.Remove(j, prefix.Length - j);
+                //    break;
+                //}
+                int j;
+                for (j = 0; j < prefix.Length && j < strs[i].Length; j++)
+                {
+                    if (prefix[j] != strs[i][j]) break;
+                }
+                int toRemove = prefix.Length - j;
+                if (toRemove > 0)
+                {
+                    prefix = prefix.Remove(j, toRemove);
+                }
+            }
+            return prefix;
+        }
     }
 }
