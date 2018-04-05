@@ -255,5 +255,68 @@ namespace LEET
             }
             return prefix;
         }
+
+        /* Given a string containing just the characters
+         * '(', ')', '{', '}', '[' and ']', determine if the input string is valid.
+         * The brackets must close in the correct order, 
+         * "()" and "()[]{}" are all valid but "(]" and "([)]" are not.
+         * 
+         * 100ms
+         */
+        public static bool IsValid(string s)
+        {
+            const string c_s = "([{";
+            const string c_e = ")]}";
+            Stack<Char> c = new Stack<char>();
+            if (s == null || s == "" || s.Length % 2 == 1) return false;
+            if (c_s.Contains(s[0])) c.Push(s[0]);
+            else return false;
+            for (int i = 1; i < s.Length; i++)
+            {
+                if (c_s.Contains(s[i])) c.Push(s[i]);
+                else if (c_e.Contains(s[i]))
+                {
+                    if (c_s.IndexOf(c.Pop()) != c_e.IndexOf(s[i]))
+                        return false;
+                }
+            }
+            if (c.Count != 0)
+                return false;
+            return true;
+        }
+
+        public bool IsValid2(string s)
+        {
+            Stack<char> myStack = new Stack<char>();
+            char strStack = new char();
+            const string c_s = "([{";
+            const string c_e = ")]}";
+            for (int i = 0; i < s.Length; i++)
+            {
+                // (s[i] == '(') || (s[i] == '[') || (s[i] == '{') is faster than this (88 ms)
+                if (c_s.Contains(s[i])) // 96 ms
+                {
+                    myStack.Push(s[i]);
+                }
+                else
+                {
+                    if (myStack.Count > 0)
+                    {
+                        strStack = (char)myStack.Pop();
+                    }
+
+                    //((strStack == '(' && s[i] == ')') ||
+                    //    (strStack == '[' && s[i] == ']') ||
+                    //    (strStack == '{' && s[i] == '}')) == false
+                    // 88 ms
+                    if (c_s.IndexOf(strStack) != c_e.IndexOf(s[i])) // 96 ms
+                    {
+                        return false;
+                    }
+                }
+            }
+
+            return (myStack.Count == 0);
+        }
     }
 }

@@ -28,19 +28,25 @@ namespace leetcode
             //string s = "MCMXCVI";
             //int a = easy.RomanToInt4(s);
             //Console.WriteLine($"{a}");
-            String[] strs =
-            {
-                "asdffffsf",
-                "asdfaaaes",
-                "asdfwefsdsdfsdf",
-                "asdfaaaaes",
-                "asdfaa",
-                "asdfe",
-                "aaasdf"
-            };
-            Console.WriteLine("asd".Contains(""));
-            Console.WriteLine("a".Remove(0, 1));
-            Console.WriteLine(easy.LongestCommonPrefix(strs));
+
+            // test 4
+            //String[] strs =
+            //{
+            //    "asdffffsf",
+            //    "asdfaaaes",
+            //    "asdfwefsdsdfsdf",
+            //    "asdfaaaaes",
+            //    "asdfaa",
+            //    "asdfe",
+            //    "aaasdf"
+            //};
+            //Console.WriteLine("asd".Contains(""));
+            //Console.WriteLine("a".Remove(0, 1));
+            //Console.WriteLine(easy.LongestCommonPrefix(strs));
+
+            // test 5
+            String s = "()";
+            Console.WriteLine(easy.IsValid(s));
 
             Console.ReadLine();
         }
