@@ -365,5 +365,24 @@ namespace LEET
             }
             return ++j;
         }
+
+        /* Given an array and a value, remove all instances of 
+         * that value in-place and return the new length.
+         * Do not allocate extra space for another array, 
+         * you must do this by modifying the input array in-place 
+         * with O(1) extra memory.
+         * The order of elements can be changed. 
+         * It doesn't matter what you leave beyond the new length.
+         */
+        public static int RemoveElement(int[] nums, int val)
+        {
+            if (nums == null || nums.Length == 0) return 0;
+            int j = 0;
+            for (int i = 0; i < nums.Length; i++)
+            {
+                if (val != nums[i]) nums[j++] = nums[i];
+            }
+            return j;
+        }
     }
 }

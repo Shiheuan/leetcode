@@ -48,14 +48,24 @@ namespace leetcode
             //String s = "()";
             //Console.WriteLine(easy.IsValid(s));
 
-            // test 6
+            // test 6 & 7
             int[] a = { 1, 2, 2, 2, 3, 5, 8, 10 };
+            int[] c = { 2, 3, 4, 5, 3, 2, 2, 3, 3, 2, 4, 5 };
             int b = easy.RemoveDuplicates(a);
+            int d = easy.RemoveElement(c, 2);
             Console.WriteLine($"length: {b}");
             Console.Write("[ ");
             for (int i = 0; i < b-1; i++)
                 Console.Write($" {a[i]},");
-            Console.Write($" {a[b-1]} ]");
+            Console.WriteLine($" {a[b-1]} ]");
+
+            Console.WriteLine($"length: {d}");
+            Console.Write("[ ");
+            for (int i = 0; i < b - 1; i++)
+                Console.Write($" {c[i]},");
+            Console.WriteLine($" {c[b - 1]} ]");
+
+            // End
             Console.ReadLine();
         }
     }
