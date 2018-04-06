@@ -384,5 +384,27 @@ namespace LEET
             }
             return j;
         }
+
+        /* Return the index of the first occurrence of needle in haystack, 
+         * or -1 if needle is not part of haystack. 
+         */
+        public static int StrStr(string haystack, string needle)
+        {
+            //return haystack.IndexOf(needle);
+            if (haystack == null || needle == null) return -1;
+            if (haystack.Length < needle.Length) return -1;
+            if (needle == "") return 0;
+            for (int i = 0; i < haystack.Length; i++)
+            {
+                if (haystack.Length - i < needle.Length) return -1;
+                if (haystack[i] != needle[0]) continue;
+                for (int j = 0; j < needle.Length; j++){
+                    if (haystack[i + j] != needle[j]) break;
+                    if (j == needle.Length - 1) return i;
+                }
+            }
+            // nothing same come here
+            return -1;
+        }
     }
 }

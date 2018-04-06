@@ -49,21 +49,28 @@ namespace leetcode
             //Console.WriteLine(easy.IsValid(s));
 
             // test 6 & 7
-            int[] a = { 1, 2, 2, 2, 3, 5, 8, 10 };
-            int[] c = { 2, 3, 4, 5, 3, 2, 2, 3, 3, 2, 4, 5 };
-            int b = easy.RemoveDuplicates(a);
-            int d = easy.RemoveElement(c, 2);
-            Console.WriteLine($"length: {b}");
-            Console.Write("[ ");
-            for (int i = 0; i < b-1; i++)
-                Console.Write($" {a[i]},");
-            Console.WriteLine($" {a[b-1]} ]");
+            //int[] a = { 1, 2, 2, 2, 3, 5, 8, 10 };
+            //int[] c = { 2, 3, 4, 5, 3, 2, 2, 3, 3, 2, 4, 5 };
+            //int b = easy.RemoveDuplicates(a);
+            //int d = easy.RemoveElement(c, 2);
+            //Console.WriteLine($"length: {b}");
+            //Console.Write("[ ");
+            //for (int i = 0; i < b-1; i++)
+            //    Console.Write($" {a[i]},");
+            //Console.WriteLine($" {a[b-1]} ]");
 
-            Console.WriteLine($"length: {d}");
-            Console.Write("[ ");
-            for (int i = 0; i < b - 1; i++)
-                Console.Write($" {c[i]},");
-            Console.WriteLine($" {c[b - 1]} ]");
+            //Console.WriteLine($"length: {d}");
+            //Console.Write("[ ");
+            //for (int i = 0; i < b - 1; i++)
+            //    Console.Write($" {c[i]},");
+            //Console.WriteLine($" {c[b - 1]} ]");
+
+            // test 8
+            string str = "mississippi";
+            string nee = "issip";
+            string nee2 = "sippia";
+            Console.WriteLine(easy.StrStr(str, nee));
+            Console.WriteLine(easy.StrStr(str, nee2));
 
             // End
             Console.ReadLine();
