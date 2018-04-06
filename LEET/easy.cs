@@ -346,5 +346,24 @@ namespace LEET
                 return l2;
             }
         }
+
+        /* Given a sorted array, remove the duplicates in-place such that 
+         * each element appear only once and return the new length.
+         * Do not allocate extra space for another array, 
+         * you must do this by modifying the input array in-place 
+         * with O(1) extra memory.
+         * 
+         * 数组引用类型，在函数内修改的是传入参数调用的变量。
+         */
+        public static int RemoveDuplicates(int[] nums)
+        {
+            if (nums == null || nums.Length == 0) return 0;
+            int j = 0;
+            for (int i = 0; i<nums.Length-1; i++)
+            {
+                if (nums[i] != nums[i + 1]) nums[++j] = nums[i+1];
+            }
+            return ++j;
+        }
     }
 }

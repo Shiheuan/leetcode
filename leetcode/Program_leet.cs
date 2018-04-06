@@ -45,9 +45,17 @@ namespace leetcode
             //Console.WriteLine(easy.LongestCommonPrefix(strs));
 
             // test 5
-            String s = "()";
-            Console.WriteLine(easy.IsValid(s));
+            //String s = "()";
+            //Console.WriteLine(easy.IsValid(s));
 
+            // test 6
+            int[] a = { 1, 2, 2, 2, 3, 5, 8, 10 };
+            int b = easy.RemoveDuplicates(a);
+            Console.WriteLine($"length: {b}");
+            Console.Write("[ ");
+            for (int i = 0; i < b-1; i++)
+                Console.Write($" {a[i]},");
+            Console.Write($" {a[b-1]} ]");
             Console.ReadLine();
         }
     }
