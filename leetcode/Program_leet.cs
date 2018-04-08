@@ -76,13 +76,19 @@ namespace leetcode
             easy.ListNode n1 = new easy.ListNode(0);
             easy.ListNode n2 = new easy.ListNode(1);
             n2.next = new easy.ListNode(8);
-            easy.ListNode a = medium.AddTwoNumbers(n1, n2);
+            easy.ListNode n3 = new easy.ListNode(2);
+            n3.next = new easy.ListNode(4);
+            n3.next.next = new easy.ListNode(3);
+            easy.ListNode n4 = new easy.ListNode(5);
+            n4.next = new easy.ListNode(6);
+            n4.next.next = new easy.ListNode(4);
+            easy.ListNode a = medium.AddTwoNumbers(n3, n4);
             do
             {
                 Console.WriteLine(a.val);
                 a = a.next;
             } while (a != null);
-            
+            // 不迭代就按这种方式访问啊
 
             // End
             Console.ReadLine();
