@@ -66,11 +66,23 @@ namespace leetcode
             //Console.WriteLine($" {c[b - 1]} ]");
 
             // test 8
-            string str = "mississippi";
-            string nee = "issip";
-            string nee2 = "sippia";
-            Console.WriteLine(easy.StrStr(str, nee));
-            Console.WriteLine(easy.StrStr(str, nee2));
+            //string str = "mississippi";
+            //string nee = "issip";
+            //string nee2 = "sippia";
+            //Console.WriteLine(easy.StrStr(str, nee));
+            //Console.WriteLine(easy.StrStr(str, nee2));
+
+            // test 9
+            easy.ListNode n1 = new easy.ListNode(0);
+            easy.ListNode n2 = new easy.ListNode(1);
+            n2.next = new easy.ListNode(8);
+            easy.ListNode a = medium.AddTwoNumbers(n1, n2);
+            do
+            {
+                Console.WriteLine(a.val);
+                a = a.next;
+            } while (a != null);
+            
 
             // End
             Console.ReadLine();
