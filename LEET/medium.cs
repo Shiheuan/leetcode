@@ -84,7 +84,7 @@ namespace LEET
                 if (count == 0)
                 {
                     head.val = sum;
-                    head = node;
+                    //head = node;
                     count++;
                 }
                 else
@@ -122,6 +122,111 @@ namespace LEET
             }
 
             return head;
+        }
+        /* time limit exceeded
+         * Brute Force 暴力算法
+         */
+        public static int LengthOfLongestSubstring2(string s)
+        {
+            string l = "";
+            string o = "";
+            for (int i = 0; i < s.Length; i++)
+            { // change: 不要重复循环，已经判定不重复的字符串序列可以重用.
+                for (int j = i; j < s.Length; j++)
+                {
+                    if (containChar(l, s[j]) != -1) l += s[j];
+                    else
+                    {
+                        // if (l.Length > o.Length) o = new string(l.ToCharArray());
+                        if (l.Length > o.Length) o = l;
+                        l = "";
+                        break;
+                    }
+                }
+            }
+            if (l != "")
+                if (l.Length > o.Length)
+                    o = l;
+            return o.Length;
+        } 
+        // 不知不觉用了窗口滑动 sliding window 还优化了
+        public static int LengthOfLongestSubstring3(string s)
+        {
+            string l = "";
+            string o = "";
+            for (int i = 0; i < s.Length; i++)
+            {
+                int j = containChar(l, s[i]);
+                if ( j == -1) l += s[i];
+                else
+                {
+                    if (l.Length > o.Length) o = l;
+                    l = l.Remove(0, j);
+                    i--;
+                }
+            }
+            // 没必要算完
+            if (l != "")
+                if (l.Length > o.Length)
+                    o = l;
+            return o.Length;
+        }
+        public static int containChar(string l, char c)
+        {
+            for (int i = 0; i < l.Length; i++)
+            {
+                if (l[i] == c) return i + 1;
+            }
+            return -1;
+        }
+        public static int LengthOfLongestSubstring(string s)
+        {
+            int n = s.Length;
+            List<char> o = new List<char>(); // use HashSet instead of List.
+            int ans = 0, i = 0, j = 0;
+            while (i < n && j < n)
+            {
+                if (!o.Contains(s[j]))
+                {
+                    o.Add(s[j++]);
+                    ans = Math.Max(ans, j - i);
+                }
+                else
+                {
+                    o.Remove(s[i++]);
+                }
+            }
+            return ans;
+        }
+        // use Dictionary (or HashMap)
+        //public static int LengthOfLongestSubstring(string s)
+        //{
+        //    int n = s.Length, ans = 0;
+        //    Dictionary<char, int> d = new Dictionary<char, int>();
+        //    for (int i = 0, j = 0; j < n; j++)
+        //    {
+        //        if (d.ContainsKey(s[j]))
+        //            i = Math.Max(d[s[j]], i);
+        //        ans = Math.Max(ans, j - i + 1);
+        //        d.Add(s[j], j + 1);
+        //    }
+        //    return ans;
+        //}
+        public int LengthOfLongestSubstring_(string s)
+        {
+            int[] lastInd = new int[256];
+            for (int i = 0; i < 256; i++)
+                lastInd[i] = -1;
+            int start = -1;
+            int res = 0;
+            for (int i = 0; i < s.Length; i++)
+            {
+                if (lastInd[s[i]] > start)
+                    start = lastInd[s[i]];
+                lastInd[s[i]] = i;
+                res = Math.Max(res, i - start);
+            }
+            return res;
         }
     }
 }
