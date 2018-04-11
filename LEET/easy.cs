@@ -406,5 +406,21 @@ namespace LEET
             // nothing same come here
             return -1;
         }
+        /* Given a sorted array and a target value, 
+         * return the index if the target is found. 
+         * If not, return the index where it would be 
+         * if it were inserted in order.
+         * 
+         */
+        public static int SearchInsert(int[] nums, int target)
+        {
+            int n = nums.Length, i = 0;
+            while (i < n)
+            {
+                if (nums[i] >= target) break;
+                i++;
+            }
+            return i;
+        }
     }
 }

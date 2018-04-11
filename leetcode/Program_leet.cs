@@ -92,16 +92,19 @@ namespace leetcode
 
             // test 10
             //string s = "aab";
-            string s = "dvdf";
+            //string s = "dvdf";
             //string s = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~ abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ01234567890!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~";
-            Console.WriteLine(medium.LengthOfLongestSubstring(s));
-            Console.WriteLine(s);
+            //Console.WriteLine(medium.LengthOfLongestSubstring(s));
+            //Console.WriteLine(s);
             // test string allocating
             //string c = s;
             //s += "22222";
             //Console.WriteLine("s: " + s);
             //Console.WriteLine("c: " + c);
 
+            // test 11
+            int[] nums = { 1, 3, 4, 5 };
+            Console.WriteLine(easy.SearchInsert(nums, 0));
             // End
             Console.ReadLine();
         }
