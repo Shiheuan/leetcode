@@ -406,5 +406,67 @@ namespace LEET
             // nothing same come here
             return -1;
         }
+        /* Given a sorted array and a target value, 
+         * return the index if the target is found. 
+         * If not, return the index where it would be 
+         * if it were inserted in order.
+         * 
+         */
+        public static int SearchInsert(int[] nums, int target)
+        {
+            int n = nums.Length, i = 0;
+            while (i < n)
+            {
+                if (nums[i] >= target) break;
+                i++;
+            }
+            return i;   
+        }
+        /* The count-and-say sequence is the sequence of integers with 
+         * the first five terms as following:
+                    1.     1
+                    2.     11
+                    3.     21
+                    4.     1211
+                    5.     111221
+         * 1 is read off as "one 1" or 11.
+         * 11 is read off as "two 1s" or 21.
+         * 21 is read off as "one 2, then one 1" or 1211.
+         * Given an integer n, generate the nth term of the count-and-say 
+         * sequence. 
+         * Note: Each term of the sequence of integers will be represented as a
+         * string. 
+         */
+        public static string CountAndSay(int n)
+        {
+            
+            string s = "";
+            for (int i = 0; i < n; i++)
+            {
+                s = nextSequence(s);
+            }
+            return s;
+        }
+        static string nextSequence(string s)
+        {
+            string new_s = "";
+            if (s == null || s == "")
+                return new_s = "1";
+            char digit = s[0];
+            int j = 0, count = 0; ;
+            while (j < s.Length)
+            {
+                if (s[j] != digit)
+                {
+                    new_s = new_s + count.ToString() + digit;
+                    digit = s[j];
+                    count = 1;
+                }
+                else
+                    count++;
+                j++;
+            }
+            return new_s + count.ToString() + digit;
+        } 
     }
 }

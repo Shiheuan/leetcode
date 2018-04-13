@@ -66,13 +66,69 @@ namespace leetcode
             //Console.WriteLine($" {c[b - 1]} ]");
 
             // test 8
-            string str = "mississippi";
-            string nee = "issip";
-            string nee2 = "sippia";
-            Console.WriteLine(easy.StrStr(str, nee));
-            Console.WriteLine(easy.StrStr(str, nee2));
+            //string str = "mississippi";
+            //string nee = "issip";
+            //string nee2 = "sippia";
+            //Console.WriteLine(easy.StrStr(str, nee));
+            //Console.WriteLine(easy.StrStr(str, nee2));
 
+            // test 9
+            //easy.ListNode n1 = new easy.ListNode(0);
+            //easy.ListNode n2 = new easy.ListNode(1);
+            //n2.next = new easy.ListNode(8);
+            //easy.ListNode n3 = new easy.ListNode(2);
+            //n3.next = new easy.ListNode(4);
+            //n3.next.next = new easy.ListNode(3);
+            //easy.ListNode n4 = new easy.ListNode(5);
+            //n4.next = new easy.ListNode(6);
+            //n4.next.next = new easy.ListNode(4);
+            //easy.ListNode a = medium.AddTwoNumbers(n3, n4);
+            //do
+            //{
+            //    Console.WriteLine(a.val);
+            //    a = a.next;
+            //} while (a != null);
+            // 不迭代就按这种方式访问啊
+
+            // test 10
+            //string s = "aab";
+            //string s = "dvdf";
+            //string s = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~ abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ01234567890!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~";
+            //Console.WriteLine(medium.LengthOfLongestSubstring(s));
+            //Console.WriteLine(s);
+            // test string allocating
+            //string c = s;
+            //s += "22222";
+            //Console.WriteLine("s: " + s);
+            //Console.WriteLine("c: " + c);
+
+            // test 11
+            //int[] nums = { 1, 3, 4, 5 };
+            //Console.WriteLine(easy.SearchInsert(nums, 0));
             // End
+
+            // test List<> and Array.
+            //easy[] num = new easy[4];
+            //List<easy> num = new List<easy>(4);
+            //Console.WriteLine(num.Count); // display: 0.
+            //num[3] = new easy(); // List error out range.
+            //easy ea = new easy();
+            //num[1] = ea;
+
+            //Console.WriteLine(num.Length);
+            //for (int i = 0; i < num.Length; i++)
+            //{
+            //    Console.WriteLine(num[i]);
+            //}
+
+            // test 12
+            Console.WriteLine(easy.CountAndSay(1));
+            Console.WriteLine(easy.CountAndSay(2));
+            Console.WriteLine(easy.CountAndSay(3));
+            Console.WriteLine(easy.CountAndSay(4));
+            Console.WriteLine(easy.CountAndSay(5));
+            Console.WriteLine(easy.CountAndSay(6));
+
             Console.ReadLine();
         }
     }
