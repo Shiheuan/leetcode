@@ -103,9 +103,32 @@ namespace leetcode
             //Console.WriteLine("c: " + c);
 
             // test 11
-            int[] nums = { 1, 3, 4, 5 };
-            Console.WriteLine(easy.SearchInsert(nums, 0));
+            //int[] nums = { 1, 3, 4, 5 };
+            //Console.WriteLine(easy.SearchInsert(nums, 0));
             // End
+
+            // test List<> and Array.
+            //easy[] num = new easy[4];
+            //List<easy> num = new List<easy>(4);
+            //Console.WriteLine(num.Count); // display: 0.
+            //num[3] = new easy(); // List error out range.
+            //easy ea = new easy();
+            //num[1] = ea;
+
+            //Console.WriteLine(num.Length);
+            //for (int i = 0; i < num.Length; i++)
+            //{
+            //    Console.WriteLine(num[i]);
+            //}
+
+            // test 12
+            Console.WriteLine(easy.CountAndSay(1));
+            Console.WriteLine(easy.CountAndSay(2));
+            Console.WriteLine(easy.CountAndSay(3));
+            Console.WriteLine(easy.CountAndSay(4));
+            Console.WriteLine(easy.CountAndSay(5));
+            Console.WriteLine(easy.CountAndSay(6));
+
             Console.ReadLine();
         }
     }
