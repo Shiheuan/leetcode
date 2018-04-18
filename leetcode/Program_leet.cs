@@ -130,8 +130,15 @@ namespace leetcode
             //Console.WriteLine(easy.CountAndSay(6));
 
             // test 13
-            int[] n = { -2, 1, -3, 4, -1, 2, 1, -5, 4 };
-            Console.WriteLine(easy.MaxSubArray(n));
+            //int[] n = { -2, 1, -3, 4, -1, 2, 1, -5, 4 };
+            //Console.WriteLine(easy.MaxSubArray(n));
+
+            // test 14
+            string s1 = "Hello World";
+            string s = "a ";
+            string s3 = "";
+            string s2 = "b   a    ";
+            Console.WriteLine(easy.LengthOfLastWord(s));
 
             Console.ReadLine();
         }

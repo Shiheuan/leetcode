@@ -502,5 +502,31 @@ namespace LEET
             }
             return sum;
         }
+        /* 80 ms
+         * 100% Ah-ha-ha
+         */
+        public static int LengthOfLastWord(string s)
+        {
+            if (s == "") return 0;
+            string[] lasts = s.Split();
+            int i = lasts.Length - 1;
+            string last = lasts[i].ToLower();
+            while (--i >= 0 && last == "")
+            {
+                last = lasts[i].ToLower();
+            }
+            for (int j = 0; j < last.Length; j++)
+            {
+                if (last[j] <= 'a' && last[j] >= 'z')
+                    return 0;
+            }
+            return last.Length;
+        }
+        public static int LengthOfLastWord2(string s)
+        {
+            var results = s.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries).LastOrDefault();
+
+            return results == null ? 0 : results.Length;
+        }
     }
 }
