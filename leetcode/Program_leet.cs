@@ -122,12 +122,16 @@ namespace leetcode
             //}
 
             // test 12
-            Console.WriteLine(easy.CountAndSay(1));
-            Console.WriteLine(easy.CountAndSay(2));
-            Console.WriteLine(easy.CountAndSay(3));
-            Console.WriteLine(easy.CountAndSay(4));
-            Console.WriteLine(easy.CountAndSay(5));
-            Console.WriteLine(easy.CountAndSay(6));
+            //Console.WriteLine(easy.CountAndSay(1));
+            //Console.WriteLine(easy.CountAndSay(2));
+            //Console.WriteLine(easy.CountAndSay(3));
+            //Console.WriteLine(easy.CountAndSay(4));
+            //Console.WriteLine(easy.CountAndSay(5));
+            //Console.WriteLine(easy.CountAndSay(6));
+
+            // test 13
+            int[] n = { -2, 1, -3, 4, -1, 2, 1, -5, 4 };
+            Console.WriteLine(easy.MaxSubArray(n));
 
             Console.ReadLine();
         }
