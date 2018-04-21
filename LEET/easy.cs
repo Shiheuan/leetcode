@@ -528,5 +528,22 @@ namespace LEET
 
             return results == null ? 0 : results.Length;
         }
+        public static int[] PlusOne(int[] digits)
+        {
+            List<int> di = new List<int>(digits);
+            int n = digits.Length;
+            di[--n]++;
+            while (--n >= 0 && di[n+1] > 9)
+            {
+                di[n + 1] -= 10;
+                di[n]++;
+            }
+            if (di[0] > 9)
+            {
+                di[0] -= 10;
+                di.Insert(0, 1);
+            }
+            return di.ToArray();
+        }
     }
 }
