@@ -86,14 +86,14 @@ namespace LEET
             }
             return true;
         }
-        
+
         /* Given a roman numeral, convert it to an integer.
          * Input is guaranteed to be within the range from 1 to 3999.
          * 240 ms
          */
         public static int RomanToInt(string s)
         {
-            Dictionary<char,int> roman = new Dictionary<char, int>()
+            Dictionary<char, int> roman = new Dictionary<char, int>()
             {
                 { 'I', 1 },
                 { 'V', 5 },
@@ -113,7 +113,7 @@ namespace LEET
             int integer = 0;
             for (int i = 0; i < s.Length; i++)
             {
-                if (i == s.Length - 1 || roman[s[i]] >= roman[s[i+1]])
+                if (i == s.Length - 1 || roman[s[i]] >= roman[s[i + 1]])
                     integer += roman[s[i]];
                 else
                     integer -= roman[s[i]];
@@ -134,8 +134,8 @@ namespace LEET
                 { 'M', 1000 }
             };
 
-            int integer = roman[s[s.Length-1]];
-            for (int i = s.Length-2; i >= 0; i--)
+            int integer = roman[s[s.Length - 1]];
+            for (int i = s.Length - 2; i >= 0; i--)
             {
                 if (roman[s[i]] < roman[s[i + 1]])
                     integer -= roman[s[i]];
@@ -359,9 +359,9 @@ namespace LEET
         {
             if (nums == null || nums.Length == 0) return 0;
             int j = 0;
-            for (int i = 0; i<nums.Length-1; i++)
+            for (int i = 0; i < nums.Length - 1; i++)
             {
-                if (nums[i] != nums[i + 1]) nums[++j] = nums[i+1];
+                if (nums[i] != nums[i + 1]) nums[++j] = nums[i + 1];
             }
             return ++j;
         }
@@ -398,7 +398,8 @@ namespace LEET
             {
                 if (haystack.Length - i < needle.Length) return -1;
                 if (haystack[i] != needle[0]) continue;
-                for (int j = 0; j < needle.Length; j++){
+                for (int j = 0; j < needle.Length; j++)
+                {
                     if (haystack[i + j] != needle[j]) break;
                     if (j == needle.Length - 1) return i;
                 }
@@ -420,7 +421,7 @@ namespace LEET
                 if (nums[i] >= target) break;
                 i++;
             }
-            return i;   
+            return i;
         }
         /* The count-and-say sequence is the sequence of integers with 
          * the first five terms as following:
@@ -439,7 +440,7 @@ namespace LEET
          */
         public static string CountAndSay(int n)
         {
-            
+
             string s = "";
             for (int i = 0; i < n; i++)
             {
@@ -533,7 +534,7 @@ namespace LEET
             List<int> di = new List<int>(digits);
             int n = digits.Length;
             di[--n]++;
-            while (--n >= 0 && di[n+1] > 9)
+            while (--n >= 0 && di[n + 1] > 9)
             {
                 di[n + 1] -= 10;
                 di[n]++;
@@ -544,6 +545,46 @@ namespace LEET
                 di.Insert(0, 1);
             }
             return di.ToArray();
+        }
+        public static string AddBinary(string a, string b)
+        {
+            char[] a1 = numstr2char(a);
+            char[] b1 = numstr2char(b);
+            List<char> result = new List<char>();
+            List<char> output = new List<char>();
+            int n = a1.Length;
+            int m = b1.Length;
+            int carry = 0, i = 1, t;
+            do
+            { // 循环变量没自增，嗯，是我能犯的错
+                if (i <= n && i <= m)
+                    t = a1[n - i] + b1[m - i] + carry;
+                else if (i <= n)
+                    t = a1[n - i] + carry;
+                else if (i <= m)
+                    t = b1[m - i] + carry;
+                else
+                    t = carry; // can't reach here.
+                result.Add((char)(t % 2));
+                carry = t / 2;
+                i++;
+            } while (i <= n || i <= m);
+            if (carry != 0) result.Add((char)carry);
+            for (int j = result.Count - 1; j >= 0; j--)
+            {
+                output.Add((char)(result[j]+'0'));
+            }
+            string o = new string(output.ToArray());
+            return o;
+        }
+        private static char[] numstr2char(string s)
+        {
+            char[] c = s.ToCharArray();
+            for (int i=0; i < c.Length; i++)
+            { // '0' - 48
+                c[i] -= (char)48;
+            }
+            return c;
         }
     }
 }

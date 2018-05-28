@@ -134,11 +134,16 @@ namespace leetcode
             //Console.WriteLine(easy.MaxSubArray(n));
 
             // test 14
-            string s1 = "Hello World";
-            string s = "a ";
-            string s3 = "";
-            string s2 = "b   a    ";
-            Console.WriteLine(easy.LengthOfLastWord(s));
+            //string s1 = "Hello World";
+            //string s = "a ";
+            //string s3 = "";
+            //string s2 = "b   a    ";
+            //Console.WriteLine(easy.LengthOfLastWord(s));
+
+            // test 15
+            string s1 = "1111";
+            string s2 = "1";
+            Console.WriteLine(easy.AddBinary(s1, s2));
 
             Console.ReadLine();
         }
