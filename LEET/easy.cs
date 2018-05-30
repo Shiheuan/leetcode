@@ -586,5 +586,25 @@ namespace LEET
             }
             return c;
         }
+        /* int相乘溢出
+         * 超出时间限制
+         */
+        public static int MySqrt(int x)
+        {
+            long m = 0, n = x, i, a1, a2;
+            //if (x == 1) return 1;
+            do
+            {
+                i = (m + n) / 2;
+                a1 = i * i;
+                a2 = (i + 1) * (i + 1);
+                if (a1 > x)
+                    n = i;
+                else if (a2 <= x)
+                    m = i + 1;
+                else if ((a1 <= x) && (a2 > x)) break;
+            } while (true);
+            return (int)i;
+        }
     }
 }

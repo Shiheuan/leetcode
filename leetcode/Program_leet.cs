@@ -141,9 +141,16 @@ namespace leetcode
             //Console.WriteLine(easy.LengthOfLastWord(s));
 
             // test 15
-            string s1 = "1111";
-            string s2 = "1";
-            Console.WriteLine(easy.AddBinary(s1, s2));
+            //string s1 = "1111";
+            //string s2 = "1";
+            //Console.WriteLine(easy.AddBinary(s1, s2));
+
+            // test 16
+            Console.WriteLine(easy.MySqrt(8));
+            Console.WriteLine(easy.MySqrt(25));
+            Console.WriteLine(easy.MySqrt(2147395599));
+            Console.WriteLine(easy.MySqrt(1));
+            Console.WriteLine(easy.MySqrt(9));
 
             Console.ReadLine();
         }
