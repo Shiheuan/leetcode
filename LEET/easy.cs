@@ -606,5 +606,56 @@ namespace LEET
             } while (true);
             return (int)i;
         }
+        /* 溢出怎么处理，
+         * 思路简单，头铁，错误
+         */
+        public static int ClimbStairs(int n)
+        {
+            // all one.
+            int n_one = n;
+            int n_two = 0;
+            int count = 1;
+            do
+            {
+                if ((n_one -= 2) < 0) break;
+                else
+                {
+                    n_two++;
+                    count += combinatorics(n_one + n_two, Math.Min(n_one, n_two));
+                }
+            }
+            while (true);
+            return count;
+        }
+        private static int combinatorics(int n, int k)
+        {
+            if (k == 0) return 1;
+            ulong nn = 1,kk = 1;
+            for(uint i = (uint)(n-k+1); i <= n; i++)
+            {
+                nn *= i; 
+            }
+            for(uint j = (uint)k; j > 1; j--)
+            {
+                kk *= j;
+            }
+            return (int)(nn / kk);
+        }
+
+        /* 动态规划
+         * ways[n]只与ways[n-1]和ways[n-2]有关 得到这个前提是关键
+         * 为什么
+         */
+        public static int ClimbStairs2(int n)
+        {
+            List<uint> ways = new List<uint>() { 1, 1};
+            for (int i = 1; i < n; i++)
+            {
+                uint temp = ways[1];
+                ways[1] += ways[0];
+                ways[0] = temp;
+            }
+            return (int)ways[1];
+        }
     }
 }
