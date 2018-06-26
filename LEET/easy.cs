@@ -658,5 +658,15 @@ namespace LEET
             }
             return (int)ways[1];
         }
+
+        /* 总要想好久……
+         * 
+         */
+        public static ListNode DeleteDuplicates(ListNode head)
+        {
+            if (head == null || head.next == null) return head;
+            head.next = DeleteDuplicates(head.next);
+            return (head.val == head.next.val) ? head.next : head;
+        }
     }
 }
