@@ -645,6 +645,7 @@ namespace LEET
         /* 动态规划
          * ways[n]只与ways[n-1]和ways[n-2]有关 得到这个前提是关键
          * 为什么
+         * 答：n阶楼梯有S(n)种走法，第一步只能是1步或2步，固定第一步为1步，则余下的n-1阶的走法为S(n-1)，相应的固定第一步为2阶，则余下的n-2阶的走法为S(n-2)
          */
         public static int ClimbStairs2(int n)
         {
