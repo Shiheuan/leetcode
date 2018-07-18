@@ -155,7 +155,65 @@ namespace leetcode
             // test 17
             //Console.WriteLine(easy.ClimbStairs(35));
             //Console.WriteLine(easy.ClimbStairs(44));
-            Console.WriteLine(easy.ClimbStairs2(45));
+            //Console.WriteLine(easy.ClimbStairs2(45));
+
+            // test babble sort 
+
+            //int[] array = { 5, 1, 6, 8, 4, 3, 9, 2, 7, 10 };
+            //DateTime startTime = DateTime.Now;
+            //int[] a = sort.bubble_sort(array);
+            //DateTime stopTime = DateTime.Now;
+            //for (int i = 0; i < array.Length; i++)
+            //    Console.Write($"{array[i]} ");
+            //Console.WriteLine();
+            //Console.WriteLine($"{stopTime - startTime}");
+
+            // test cocktail sort
+            //int[] array = { 2, 3, 4, 5, 6, 7, 8, 9, 10, 1 };
+            //int[] a = array;
+            //DateTime startTime1 = DateTime.Now;
+            //a = sort.cocktail_sort(array);
+            //// a = sort.bubble_sort(array);
+            //DateTime stopTime1 = DateTime.Now;
+            //for (int i = 0; i < array.Length; i++)
+            //    Console.Write($"{array[i]} ");
+            //Console.WriteLine();
+            //Console.WriteLine($"{stopTime1 - startTime1}");
+
+            // test selection sort
+            //int[] array = { 2, 3, 4, 5, 6, 7, 8, 9, 10, 1 };
+            //int[] a = array;
+            //DateTime startTime1 = DateTime.Now;
+            //a = sort.selection_sort(array);
+            //// a = sort.bubble_sort(array);
+            //DateTime stopTime1 = DateTime.Now;
+            //for (int i = 0; i < array.Length; i++)
+            //    Console.Write($"{array[i]} ");
+            //Console.WriteLine();
+            //Console.WriteLine($"{stopTime1 - startTime1}");
+
+            //int[] array = { 5, 1, 6, 8, 4, 3, 9, 2, 7, 10 };
+            //int[] a = array;
+            //DateTime startTime1 = DateTime.Now;
+            //a = sort.insertion_sort(array);
+            //// a = sort.bubble_sort(array);
+            //DateTime stopTime1 = DateTime.Now;
+            //for (int i = 0; i < array.Length; i++)
+            //    Console.Write($"{array[i]} ");
+            //Console.WriteLine();
+            //Console.WriteLine($"{stopTime1 - startTime1}");
+
+
+            int[] array = { 13, 14, 94, 33, 82, 25, 59, 94, 65, 23, 45, 27, 73, 25, 39, 10 };
+            int[] a = array;
+            DateTime startTime1 = DateTime.Now;
+            a = sort.shell_sort(array);
+            // a = sort.bubble_sort(array);
+            DateTime stopTime1 = DateTime.Now;
+            for (int i = 0; i < array.Length; i++)
+                Console.Write($"{array[i]} ");
+            Console.WriteLine();
+            Console.WriteLine($"{stopTime1 - startTime1}");
 
             Console.ReadLine();
         }
