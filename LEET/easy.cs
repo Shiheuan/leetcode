@@ -30,6 +30,30 @@ namespace LEET
             return new int[] { 0 };
         }
 
+        public static int[] TwoSum2(int[] nums, int target)
+        {
+            var lookup = new Dictionary<int, int>();
+
+            for (var i = 0; i < nums.Length; i++)
+            {
+                var num = nums[i];
+                if (lookup.ContainsKey(target - num))
+                {
+                    var lookupIndex = lookup[target - num];
+
+                    var smallerIndex = i < lookupIndex ? i : lookupIndex;
+                    var largerIndex = i > lookupIndex ? i : lookupIndex;
+                    return new int[] { smallerIndex, largerIndex };
+                }
+                else
+                {
+                    lookup[num] = i;
+                }
+            }
+
+            // Should never get here
+            return null;
+        }
         /* Reverse Integer: Given a 32-bit signed integer, reverse
          * digits of the integer.
          * note: the function returns 0 when the reversed integer
