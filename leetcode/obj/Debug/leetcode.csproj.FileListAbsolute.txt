@@ -24,3 +24,13 @@ F:\gitrepo\leetcode\leetcode\obj\Debug\leetcode.csproj.CoreCompileInputs.cache
 F:\gitrepo\leetcode\leetcode\obj\Debug\leetcode.csproj.CopyComplete
 F:\gitrepo\leetcode\leetcode\obj\Debug\leetcode.exe
 F:\gitrepo\leetcode\leetcode\obj\Debug\leetcode.pdb
+E:\gitdir\leetcode\leetcode\obj\Debug\leetcode.csprojAssemblyReference.cache
+E:\gitdir\leetcode\leetcode\obj\Debug\leetcode.csproj.CoreCompileInputs.cache
+E:\gitdir\leetcode\leetcode\obj\Debug\leetcode.exe
+E:\gitdir\leetcode\leetcode\obj\Debug\leetcode.pdb
+E:\gitdir\leetcode\leetcode\bin\Debug\leetcode.exe.config
+E:\gitdir\leetcode\leetcode\bin\Debug\leetcode.exe
+E:\gitdir\leetcode\leetcode\bin\Debug\leetcode.pdb
+E:\gitdir\leetcode\leetcode\bin\Debug\LEET.dll
+E:\gitdir\leetcode\leetcode\bin\Debug\LEET.pdb
+E:\gitdir\leetcode\leetcode\obj\Debug\leetcode.csproj.CopyComplete

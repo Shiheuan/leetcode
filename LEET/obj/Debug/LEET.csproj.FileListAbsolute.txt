@@ -14,3 +14,9 @@ F:\gitrepo\leetcode\LEET\obj\Debug\LEET.csprojAssemblyReference.cache
 F:\gitrepo\leetcode\LEET\obj\Debug\LEET.csproj.CoreCompileInputs.cache
 F:\gitrepo\leetcode\LEET\obj\Debug\LEET.dll
 F:\gitrepo\leetcode\LEET\obj\Debug\LEET.pdb
+E:\gitdir\leetcode\LEET\obj\Debug\LEET.csprojAssemblyReference.cache
+E:\gitdir\leetcode\LEET\obj\Debug\LEET.csproj.CoreCompileInputs.cache
+E:\gitdir\leetcode\LEET\obj\Debug\LEET.dll
+E:\gitdir\leetcode\LEET\obj\Debug\LEET.pdb
+E:\gitdir\leetcode\LEET\bin\Debug\LEET.dll
+E:\gitdir\leetcode\LEET\bin\Debug\LEET.pdb
