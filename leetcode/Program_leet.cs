@@ -155,7 +155,14 @@ namespace leetcode
             // test 17
             //Console.WriteLine(easy.ClimbStairs(35));
             //Console.WriteLine(easy.ClimbStairs(44));
-            Console.WriteLine(easy.ClimbStairs2(45));
+            //Console.WriteLine(easy.ClimbStairs2(45));
+
+            // test 18
+            //int[] a = { -2, -1 };
+            //int[] b = { 3 };
+            int[] a = {};
+            int[] b = { 3 };
+            Console.WriteLine(hard.FindMedianSortedArrays(a, b));
 
             Console.ReadLine();
         }
