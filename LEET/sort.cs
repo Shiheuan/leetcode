@@ -302,5 +302,23 @@ namespace LEET
                 sift_down(arr, maxIndex, size);
             }
         }
+
+        public static int[] counting_sort(int[] arr)
+        {
+            // only sort 0 ~ k elements.
+            int m = 0;
+            for (int i = 0; i < arr.Length; i++)
+            {
+                if (arr[i] > m) m = arr[i];
+            }
+            int[] result = new int[arr.Length];
+            int[] counts = new int[m+1];
+            for (int i = 0; i <= m; i++) counts[i] = 0;
+            for (int i = 0; i < arr.Length; i++) counts[arr[i]]++;
+            for (int i = 1; i <= m; i++) counts[i] += counts[i - 1];
+            for (int i = arr.Length - 1; i >= 0; i--)
+                result[--counts[arr[i]]] = arr[i];
+            return result;
+        }
     }
 }

@@ -228,5 +228,31 @@ namespace LEET
             }
             return res;
         }
+
+        public static string SimplifyPath(string path)
+        {
+            Stack<string> S = new Stack<string>();
+            string[] Strs = path.Split('/');
+            for (int i = 0; i < Strs.Length; i++)
+            {
+                if ("" == Strs[i] || "." == Strs[i])
+                    continue;
+                else if (".." == Strs[i])
+                {
+                    if (S.Count != 0)
+                        S.Pop();
+                }
+                else
+                    S.Push(Strs[i]);
+            }
+            string ans = S.Count == 0 ? "/" : ("/" + S.Pop());
+            string temp = "";
+            while (S.Count > 0)
+            {
+                temp = "/" + S.Pop();
+                ans = temp + ans;
+            }
+            return ans;
+        }
     }
 }

@@ -226,17 +226,25 @@ namespace leetcode
             //Console.WriteLine();
             //Console.WriteLine($"{stopTime1 - startTime1}");
 
-            int[] array = { 13, 14, 94, 33, 82, 25, 59, 94, 65, 23, 45, 27, 73, 25, 39, 10 };
-            int[] a = array;
-            DateTime startTime1 = DateTime.Now;
-            //sort.merge_sort(array);
-            //sort.merge_sort2(array);
-            sort.heap_sort2(array);
-            DateTime stopTime1 = DateTime.Now;
-            for (int i = 0; i < array.Length; i++)
-                Console.Write($"{array[i]} ");
-            Console.WriteLine();
-            Console.WriteLine($"{stopTime1 - startTime1}");
+            // int[] array = { 13, 14, 94, 33, 82, 25, 59, 94, 65, 23, 45, 27, 73, 25, 39, 10 };
+            // int[] a = array;
+            // DateTime startTime1 = DateTime.Now;
+            // //sort.merge_sort(array);
+            // //sort.merge_sort2(array);
+            // sort.heap_sort2(array);
+            // DateTime stopTime1 = DateTime.Now;
+            // for (int i = 0; i < array.Length; i++)
+            //     Console.Write($"{array[i]} ");
+            // Console.WriteLine();
+            // Console.WriteLine($"{stopTime1 - startTime1}");
+
+            // test 18
+            //int[] a = { -2, -1 };
+            //int[] b = { 3 };
+            int[] a = {};
+            int[] b = { 3 };
+            Console.WriteLine(hard.FindMedianSortedArrays(a, b));
+
 
             Console.ReadLine();
         }
