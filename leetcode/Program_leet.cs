@@ -241,11 +241,14 @@ namespace leetcode
             // test 18
             //int[] a = { -2, -1 };
             //int[] b = { 3 };
-            int[] a = {};
-            int[] b = { 3 };
-            Console.WriteLine(hard.FindMedianSortedArrays(a, b));
-
-
+            //int[] a = {};
+            //int[] b = { 3 };
+            //Console.WriteLine(hard.FindMedianSortedArrays(a, b));
+            IList<IList<string>> a = new List<IList<string>>();
+            a = hard.SolveNQueens(5);
+            for (int i = 0; i < a.Count; i++)
+                for (int j = 0; j < a[i].Count; j++)
+                    Console.WriteLine(a[i][j]);
             Console.ReadLine();
         }
     }
