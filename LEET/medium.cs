@@ -254,5 +254,43 @@ namespace LEET
             }
             return ans;
         }
+
+        public static string LongestPalindrome(string s)
+        {
+            if (s.Length == 0) { return ""; }
+            int i = 0, w = s.Length;
+            string ans = "";
+            for (; w > 1; w--)
+            {
+                for (i = 0; i <= s.Length - w; i++)
+                {
+                    if (isPalindrome(s, i, w) == true)
+                    {
+                        for (int j = i; j < i + w; j++)
+                        {
+                            ans += s[j];
+                        }
+                        return ans;
+                    }
+                }
+            }
+            ans += s[0];
+            return ans;
+        }
+        private static bool isPalindrome(string s, int start, int window)
+        {
+            int end = start + window;
+            for (int i = 0; i < window; i++)
+            {
+                if (i < (end - i))
+                {
+                    if (s[i + start] != s[end - i - 1])
+                        return false;
+                }
+                else
+                    break;
+            }
+            return true;
+        }
     }
 }

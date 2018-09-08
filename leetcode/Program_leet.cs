@@ -244,11 +244,25 @@ namespace leetcode
             //int[] a = {};
             //int[] b = { 3 };
             //Console.WriteLine(hard.FindMedianSortedArrays(a, b));
-            IList<IList<string>> a = new List<IList<string>>();
-            a = hard.SolveNQueens(5);
-            for (int i = 0; i < a.Count; i++)
-                for (int j = 0; j < a[i].Count; j++)
-                    Console.WriteLine(a[i][j]);
+
+            //IList<IList<string>> a = new List<IList<string>>();
+            //a = hard.SolveNQueens(5);
+            //for (int i = 0; i < a.Count; i++)
+            //    for (int j = 0; j < a[i].Count; j++)
+            //        Console.WriteLine(a[i][j]);
+
+            // test 19
+            string a = "aa";
+            string b = "aaccccdccc";
+            string c = "";
+            string d = "asvcd";
+
+            Console.WriteLine(medium.LongestPalindrome(a));
+            Console.WriteLine(medium.LongestPalindrome(b));
+            Console.WriteLine(medium.LongestPalindrome(c));
+            Console.WriteLine(medium.LongestPalindrome(d));
+
+
             Console.ReadLine();
         }
     }
