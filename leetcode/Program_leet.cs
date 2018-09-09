@@ -252,16 +252,27 @@ namespace leetcode
             //        Console.WriteLine(a[i][j]);
 
             // test 19
-            string a = "aa";
-            string b = "aaccccdccc";
-            string c = "";
-            string d = "asvcd";
+            //string a = "aa";
+            //string b = "aaccccdccc";
+            //string c = "";
+            //string d = "asvcd";
 
-            Console.WriteLine(medium.LongestPalindrome2(a));
-            Console.WriteLine(medium.LongestPalindrome2(b));
-            Console.WriteLine(medium.LongestPalindrome2(c));
-            Console.WriteLine(medium.LongestPalindrome2(d));
+            //Console.WriteLine(medium.LongestPalindrome2(a));
+            //Console.WriteLine(medium.LongestPalindrome2(b));
+            //Console.WriteLine(medium.LongestPalindrome2(c));
+            //Console.WriteLine(medium.LongestPalindrome2(d));
 
+            // test how to use "call stack".
+            int[] b = { 1, 2, 2, 2, 3, 3, 4 };
+            var a = new easy.ListNode(b[0]);
+            var n = a;
+            for (int i = 1; i < b.Length; i++)
+            {
+                n.next = new easy.ListNode(b[i]);
+                n = n.next;
+            }
+
+            easy.DeleteDuplicates(a);
 
             Console.ReadLine();
         }
