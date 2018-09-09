@@ -257,10 +257,10 @@ namespace leetcode
             string c = "";
             string d = "asvcd";
 
-            Console.WriteLine(medium.LongestPalindrome(a));
-            Console.WriteLine(medium.LongestPalindrome(b));
-            Console.WriteLine(medium.LongestPalindrome(c));
-            Console.WriteLine(medium.LongestPalindrome(d));
+            Console.WriteLine(medium.LongestPalindrome2(a));
+            Console.WriteLine(medium.LongestPalindrome2(b));
+            Console.WriteLine(medium.LongestPalindrome2(c));
+            Console.WriteLine(medium.LongestPalindrome2(d));
 
 
             Console.ReadLine();

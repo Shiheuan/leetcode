@@ -292,5 +292,52 @@ namespace LEET
             }
             return true;
         }
+        // Manacher's algorithm (find longest Palindrome)
+        private static string preProcess(string s)
+        {
+            int n = s.Length;
+            if (n == 0) return "^$";
+            string ret = "^";
+            for (int i = 0; i < n; i++)
+            {
+                ret += "#" + s[i];
+            }
+            ret += "#$";
+            return ret;
+        }
+        public static string LongestPalindrome2(string s)
+        {
+            string T = preProcess(s);
+            int n = T.Length;
+            int[] P = new int[n]; // the length of the palindrome centers at Ti.
+            int C = 0, R = 0;
+            for (int i = 1; i < n - 1; i++)
+            {
+                int i_mirror = 2 * C - i; // C - (i - C);
+                P[i] = (R > i) ? Math.Min(R-i, P[i_mirror]) : 0;
+
+                // Attempt to expand palindrome centered at i
+                while (T[i + 1 + P[i]] == T[i - 1 - P[i]])
+                    P[i]++;
+
+                if (i + P[i] > R)
+                {
+                    C = i;
+                    R = i + P[i];
+                }
+            }
+            int maxLen = 0;
+            int centreIndex = 0;
+            for (int i = 1; i < n-1; i++)
+            {
+                if (P[i] > maxLen)
+                {
+                    maxLen = P[i];
+                    centreIndex = i;
+                }
+            }
+            return s.Substring((centreIndex-maxLen-1)/2, maxLen);
+        }
+
     }
 }
