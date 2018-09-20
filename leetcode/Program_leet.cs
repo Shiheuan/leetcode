@@ -263,16 +263,20 @@ namespace leetcode
             //Console.WriteLine(medium.LongestPalindrome2(d));
 
             // test how to use "call stack".
-            int[] b = { 1, 2, 2, 2, 3, 3, 4 };
-            var a = new easy.ListNode(b[0]);
-            var n = a;
-            for (int i = 1; i < b.Length; i++)
-            {
-                n.next = new easy.ListNode(b[i]);
-                n = n.next;
-            }
+            //int[] b = { 1, 2, 2, 2, 3, 3, 4 };
+            //var a = new easy.ListNode(b[0]);
+            //var n = a;
+            //for (int i = 1; i < b.Length; i++)
+            //{
+            //    n.next = new easy.ListNode(b[i]);
+            //    n = n.next;
+            //}
 
-            easy.DeleteDuplicates(a);
+            //easy.DeleteDuplicates(a);
+
+            exam.BreakBlock game = new exam.BreakBlock();
+            //game.test_func();
+            game.startGame();
 
             Console.ReadLine();
         }

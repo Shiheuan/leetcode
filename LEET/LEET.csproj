@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="easy.cs" />
+    <Compile Include="exam.cs" />
     <Compile Include="hard.cs" />
     <Compile Include="medium.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
