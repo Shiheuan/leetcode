@@ -16,6 +16,7 @@ namespace LEET
             public const int RED = 0, GREEN = 1, BLUE = 2, YELLOW = 3, PURPLE = 4;
             public const int NONE = 99;
             public List<List<int>> ops; // input List<int>
+            List<int> line = new List<int>();
             public List<int[]> forRemove;
             // 点击后的游戏场景
             private int[,] MAP = new int[10, 10];
@@ -157,20 +158,40 @@ namespace LEET
             }
             public void startGame()
             {
-                this.inputs();
-                for (int i = 0; i < ops.Count; i++)
+                // this.inputs();
+                // for (int i = 0; i < ops.Count; i++)
+                // {
+                //     int[] output = this.operating(ops[i]);
+                //     for (int j = 0; j < output.Length; j++)
+                //     {
+                //         Console.Write(output[j]);
+                //         Console.Write(" ");
+                //     }
+                //     Console.Write("\n");
+                // }
+                // return;
+                // read a line and output
+                string str = "";
+
+                str = Console.ReadLine();
+                string[] n_m = str.Split();
+                
+                for (int i = 0; i < n_m.Length; i++)
                 {
-                    int[] output = this.operating(ops[i]);
-                    for (int j = 0; j < output.Length; j++)
-                    {
-                        Console.Write(output[j]);
-                        Console.Write(" ");
-                    }
-                    Console.Write("\n");
+                    line.Add(Convert.ToInt32(n_m[i]));
                 }
+                int[] output = this.operating(line);
+                for (int j = 0; j < output.Length; j++)
+                {
+                    Console.Write(output[j]);
+                    Console.Write(" ");
+                }
+                Console.Write("\n");
+
+                
                 return;
             }
-            // 砖块消除游戏输入
+            // 砖块消除游戏输入 all in once
             public void inputs()
             {
                 List<string> inputs = new List<string>();
@@ -218,7 +239,7 @@ namespace LEET
             // find the same blocks
             private void findClick(int x, int y)
             {
-                int color = p[x, y];
+                int color = MAP[x, y];
                 forRemove.Clear();
                 forRemove.Add(new int[] { x, y });
                 click_recursion(color, x, y);
@@ -235,17 +256,17 @@ namespace LEET
                     forRemove.Add(new int[] { x + 1, y });
                     click_recursion(color, x + 1, y);
                 }
-                else if (x - 1 >= 0 && checkListContains(x - 1, y) && isRightBlock(color, x - 1, y))
+                if (x - 1 >= 0 && checkListContains(x - 1, y) && isRightBlock(color, x - 1, y))
                 {
                     forRemove.Add(new int[] { x - 1, y });
                     click_recursion(color, x - 1, y);
                 }
-                else if (y + 1 < 10 && checkListContains(x, y + 1) && isRightBlock(color, x, y + 1))
+                if (y + 1 < 10 && checkListContains(x, y + 1) && isRightBlock(color, x, y + 1))
                 {
                     forRemove.Add(new int[] { x, y + 1 });
                     click_recursion(color, x, y + 1);
                 }
-                else if (y - 1 >= 0 && checkListContains(x, y - 1) && isRightBlock(color, x, y - 1))
+                if (y - 1 >= 0 && checkListContains(x, y - 1) && isRightBlock(color, x, y - 1))
                 {
                     forRemove.Add(new int[] { x, y - 1 });
                     click_recursion(color, x, y - 1);
@@ -254,7 +275,7 @@ namespace LEET
             private bool isRightBlock(int color, int x, int y)
             {
 
-                if (p[x, y] == color)
+                if (MAP[x, y] == color)
                     return true;
                 return false;
             }
@@ -319,7 +340,7 @@ namespace LEET
                 {
                     if (Mcc[c[i]] == 0)
                     {
-                        for (int j = c[i]; j < Mr; j++)
+                        for (int j = c[i]; j < Mr - 1; j++)
                             for (int ii = 0; ii < 10; ii++)
                                 MAP[ii, j] = MAP[ii, j + 1];
                         Mr--;
