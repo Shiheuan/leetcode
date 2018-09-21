@@ -350,5 +350,61 @@ namespace LEET
                 }
             }
         }
+
+        // 2018bilibili秋招
+        public class Cashapon
+        {
+            public int count = 0;
+            // key->amountNeeded, val->int[0] inputnum, int[1] cas
+            Dictionary<int, int[]> p = new Dictionary<int, int[]>();
+            public List<int> ops = new List<int>();
+            public Cashapon() {}
+            private int cas_2(int x)
+            {
+                return (x - 1) / 2;
+            }
+            private int cas_3(int x)
+            {
+                return (x - 2) / 2;
+            }
+            public void start()
+            {
+                List<string> inputs = new List<string>();
+                string str = "";
+                str = Console.ReadLine();
+                this.recursion1(Convert.ToInt32(str));
+                for (int i = ops.Count - 1; i >= 0; i--)
+                {
+                    Console.Write(ops[i]);
+                    //Console.Write(" ");
+                }
+            }
+            private void recursion1(int num)
+            {
+                if (num == 0) return;
+                else
+                {
+                    if ((num % 2) == 1)
+                    {
+                        ops.Add(2);
+                        recursion1(cas_2(num));
+                    }
+                    else
+                    {
+                        ops.Add(3);
+                        recursion1(cas_3(num));
+                    }
+                }
+            }
+            public void test_func()
+            {
+                recursion1(10);
+                for (int i = ops.Count - 1; i >= 0; i--)
+                {
+                    Console.Write(ops[i]);
+                }
+            }
+        }
     }
+
 }

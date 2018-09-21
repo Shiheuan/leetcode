@@ -274,9 +274,13 @@ namespace leetcode
 
             //easy.DeleteDuplicates(a);
 
-            exam.BreakBlock game = new exam.BreakBlock();
-            //game.test_func();
-            game.startGame();
+            //exam.BreakBlock game = new exam.BreakBlock();
+            ////game.test_func();
+            //game.startGame();
+
+            exam.Cashapon a = new exam.Cashapon();
+            a.test_func();
+            a.start();
 
             Console.ReadLine();
         }
