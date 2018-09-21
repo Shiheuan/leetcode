@@ -405,6 +405,52 @@ namespace LEET
                 }
             }
         }
+
+        // 2017完美秋招版本更新
+        public class UpdateClient
+        {
+            public Dictionary<int, int> lv = new Dictionary<int, int>();
+            public Dictionary<int, int> hv = new Dictionary<int, int>();
+            public List<int[]> lines = new List<int[]>();
+            public int src = 0;
+            public int des = 0;
+            public int[,] updateSize;
+            public int[,] updateMin;
+            public int[,] updatePath;
+            public UpdateClient(){}
+            public void inputs()
+            {
+                
+            }
+            void floyd()
+            {
+            }
+            public void test_func()
+            {
+                /***********
+                 * test 01 *
+                 ***********/
+                lines.Add(new int[] { 1000, 1050 });
+                lines.Add(new int[] { 1000, 1020, 50 });
+                lines.Add(new int[] { 1000, 1030, 70 });
+                lines.Add(new int[] { 1020, 1030, 15 });
+                lines.Add(new int[] { 1020, 1040, 30 });
+                lines.Add(new int[] { 1030, 1050, 40 });
+                lines.Add(new int[] { 1040, 1050, 20 });
+
+                int lc = 4, hc = 4;
+
+                updatePath = new int[4, 4];
+                
+                // init
+                for (int i = 0; i < lc; i++)
+                    for (int j = 0; j < hc; j++)
+                    {
+                        updateSize[i, j] = 0;
+                        updatePath[i, j] = 0;
+                    }
+            }
+        }
     }
 
 }
