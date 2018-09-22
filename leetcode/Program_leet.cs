@@ -278,8 +278,12 @@ namespace leetcode
             ////game.test_func();
             //game.startGame();
 
-            exam.Cashapon a = new exam.Cashapon();
-            a.test_func();
+            //exam.Cashapon a = new exam.Cashapon();
+            //a.test_func();
+            //a.start();
+
+            exam.UpdateClient a = new exam.UpdateClient();
+            //a.test_func();
             a.start();
 
             Console.ReadLine();

@@ -409,48 +409,237 @@ namespace LEET
         // 2017完美秋招版本更新
         public class UpdateClient
         {
-            public Dictionary<int, int> lv = new Dictionary<int, int>();
-            public Dictionary<int, int> hv = new Dictionary<int, int>();
-            public List<int[]> lines = new List<int[]>();
+            // 若需要顺序，使用dict将index作为值存入
+            //public Dictionary<int, int> vc = new Dictionary<int, int>();
+            public List<int> vc = new List<int>();
+            public List<List<int>> lines = new List<List<int>>();
             public int src = 0;
             public int des = 0;
             public int[,] updateSize;
             public int[,] updateMin;
             public int[,] updatePath;
             public UpdateClient(){}
-            public void inputs()
+
+            public void start()
             {
+                List<string> strs = new List<string>();
+                string str = "";
+                // 输入N行数据
+                str = Console.ReadLine();
+                strs.Add(str);
+                // 赛码输入多行数据的方式
+                //while ((str = Console.ReadLine()) != null)
+                while ((str = Console.ReadLine()) != "")
+                {
+                    strs.Add(str);
+                }
                 
+                for (int i = 0; i < strs.Count; i++)
+                {
+                    string[] n_m = strs[i].Split();
+                    List<int> line = new List<int>();
+                    for (int j = 0; j < n_m.Length; j++)
+                    {
+                        line.Add(Convert.ToInt32(n_m[j]));
+                    }
+                    lines.Add(line);
+                }
+                this.inputs(lines);
+                this.floyd();
+
+                display();
+
+                // output
+                Console.Write("{0}->", vc[src]);
+                this.displayMidPath(src, des);
+                Console.Write("{0}({1})", vc[des], updateMin[src, des]);
             }
-            void floyd()
+            private void inputs(List<List<int>> lines)
             {
+                // line 1 为当前版本和目标版本
+                int src_v = lines[0][0], des_v = lines[0][1];
+                // line 2 开始输入升级包列表
+                for (int i = 1; i < lines.Count; i++)
+                {
+                    for (int j = 0; j < 2; j++)
+                        if (!vc.Contains(lines[i][j]))
+                        {
+                            if (vc.Count==0)
+                                vc.Add(lines[i][j]);
+                            else if (lines[i][j] > vc[vc.Count-1])
+                                vc.Add(lines[i][j]);
+                            else
+                            {
+                                for (int k = vc.Count-2; k >=0; k--)
+                                {
+                                    if (vc[k] < lines[i][j])
+                                    {
+                                        vc.Insert(k+1, lines[i][j]);
+                                        break;
+                                    }
+                                }
+                            }
+                        }
+                }
+                src = vc.IndexOf(src_v);
+                des = vc.IndexOf(des_v);
+                // init matrix
+                updateSize = new int[vc.Count,vc.Count];
+                updateMin = new int[vc.Count,vc.Count];
+                updatePath = new int[vc.Count,vc.Count];
+                for (int i = 0; i < vc.Count; i++)
+                    for (int j = 0; j < vc.Count; j++)
+                    {
+                        updatePath[i, j] = 0;
+                        if (i == j)
+                        {
+                            updateSize[i, j] = 0;
+                            updateMin[i, j] = 0;
+                        }
+                        else
+                        {
+                            updateSize[i, j] = int.MaxValue;
+                            updateMin[i, j] = int.MaxValue;
+                        }
+                    }
+                // fill the size of updates
+                for (int i = 1; i < lines.Count; i++)
+                {
+                    int ii = vc.IndexOf(lines[i][0]), ij = vc.IndexOf(lines[i][1]);
+                    updateSize[ii, ij] = lines[i][2];
+                    updateMin[ii, ij] = lines[i][2];
+                }
+            }
+            private void floyd()
+            {
+                for (int k = 0; k < vc.Count; k++)
+                {
+                    for (int i = 0; i < vc.Count; i++)
+                    {
+                        for (int j = 0; j < vc.Count; j++)
+                        {
+                            int temp = (updateMin[i, k] + updateMin[k, j]);
+                            if (temp > 0 && updateMin[i,j] > temp)
+                            {
+                                updatePath[i, j] = k;
+                                updateMin[i, j] = updateMin[i, k] + updateMin[k, j];
+                            }
+                        }
+                    }
+                }
+            }
+
+            private void displayMidPath(int i, int j)
+            {
+                if (updatePath[i, j] != 0)
+                {
+                    displayMidPath(i, updatePath[i, j]);
+                    Console.Write("{0}->", vc[updatePath[i, j]]);
+                }
+            }
+            private void display()
+            {
+                Console.WriteLine("src_i: {0}, src: {1}", src, lines[0][0]);
+                Console.WriteLine("des_i: {0}, des: {1}", des, lines[0][1]);
+                //输出表 version
+                for (int i = 0; i < vc.Count; i++)
+                {
+                    Console.Write("     {0}", vc[i]);
+                }
+                // 输出 updateSize
+                for (int i = 0; i < vc.Count; i++)
+                {
+                    for (int j = 0; j < vc.Count; j++)
+                    {
+                        Console.Write("{0}          ", updateSize[i, j]);
+                    }
+                    Console.Write("\n");
+                }
+                // 输出 updateMin
+                for (int i = 0; i < vc.Count; i++)
+                {
+                    for (int j = 0; j < vc.Count; j++)
+                    {
+                        Console.Write("{0}          ", updateMin[i, j]);
+                    }
+                    Console.Write("\n");
+                }
+                // 输出 updatepath
+                for (int i = 0; i < vc.Count; i++)
+                {
+                    for (int j = 0; j < vc.Count; j++)
+                    {
+                        Console.Write("{0}          ", updatePath[i, j]);
+                    }
+                    Console.Write("\n");
+                }
+                displayMidPath(src, des);
             }
             public void test_func()
             {
                 /***********
                  * test 01 *
                  ***********/
-                lines.Add(new int[] { 1000, 1050 });
-                lines.Add(new int[] { 1000, 1020, 50 });
-                lines.Add(new int[] { 1000, 1030, 70 });
-                lines.Add(new int[] { 1020, 1030, 15 });
-                lines.Add(new int[] { 1020, 1040, 30 });
-                lines.Add(new int[] { 1030, 1050, 40 });
-                lines.Add(new int[] { 1040, 1050, 20 });
+                lines.Add(new List<int> { 1000, 1050 });
+                lines.Add(new List<int> { 1000, 1020, 50 });
+                lines.Add(new List<int> { 1000, 1030, 70 });
+                lines.Add(new List<int> { 1020, 1030, 15 });
+                lines.Add(new List<int> { 1020, 1040, 30 });
+                lines.Add(new List<int> { 1030, 1050, 40 });
+                lines.Add(new List<int> { 1040, 1050, 20 });
 
-                int lc = 4, hc = 4;
-
-                updatePath = new int[4, 4];
-                
-                // init
-                for (int i = 0; i < lc; i++)
-                    for (int j = 0; j < hc; j++)
+                this.inputs(lines);
+                //输出表 version
+                for (int i = 0; i < vc.Count; i++)
+                {
+                    Console.Write("     {0}", vc[i]);
+                }
+                Console.Write("\n");
+                for (int i = 0; i < vc.Count; i++)
+                {
+                    Console.WriteLine(vc[i]);
+                }
+                Console.WriteLine("src_i: {0}, src: {1}", src, lines[0][0]);
+                Console.WriteLine("des_i: {0}, des: {1}", des, lines[0][1]);
+                // 输出 updateSize
+                //for (int i = 0; i < vc.Count; i++)
+                //{
+                //    for (int j = 0; j < vc.Count; j++)
+                //    {
+                //        Console.Write("{0}          ", updateSize[i, j]);
+                //    }
+                //    Console.Write("\n");
+                //}
+                /***********
+                 * test 02 *
+                 ***********/
+                Console.WriteLine(int.MaxValue);
+                Console.WriteLine(unchecked(int.MaxValue + 10));
+                /***********************
+                 * test 03 (base on 01)*
+                 ***********************/
+                this.floyd();
+                // 输出 updateSize
+                //for (int i = 0; i < vc.Count; i++)
+                //{
+                //    for (int j = 0; j < vc.Count; j++)
+                //    {
+                //        Console.Write("{0}          ", updateMin[i, j]);
+                //    }
+                //    Console.Write("\n");
+                //}
+                Console.WriteLine(updateMin[src, des]);
+                // 输出 updatepath
+                for (int i = 0; i < vc.Count; i++)
+                {
+                    for (int j = 0; j < vc.Count; j++)
                     {
-                        updateSize[i, j] = 0;
-                        updatePath[i, j] = 0;
+                        Console.Write("{0}          ", updatePath[i, j]);
                     }
+                    Console.Write("\n");
+                }
+                displayMidPath(src, des);
             }
         }
     }
-
 }
